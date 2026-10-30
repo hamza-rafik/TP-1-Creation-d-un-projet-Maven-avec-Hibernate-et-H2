@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Paramètres de connexion JDBC pour H2 en mémoire -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="connection.url">jdbc:h2:mem:tp1db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password"></property>
+
+        <!-- Dialecte SQL Hibernate pour H2 -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- Configuration du pool de connexions simple -->
+        <property name="connection.pool_size">5</property>
+
+        <!-- Affichage et formatage des requêtes SQL générées -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="highlight_sql">true</property>
+
+        <!-- Génération et mise à jour automatique du schéma de la BD -->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <!-- Déclaration des classes entités annotées -->
+        <mapping class="com.tp.model.Etudiant"/>
+    </session-factory>
+</hibernate-configuration>
